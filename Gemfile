@@ -62,3 +62,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'miro'
+
+gem 'active_model_serializers'
+
+gem 'rack-cors'
