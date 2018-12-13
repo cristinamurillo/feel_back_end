@@ -1,10 +1,11 @@
 class PaintingsController < ApplicationController
 
     def index
-        
+        render json: Painting.all 
     end
 
     def show
+        render json: Painting.find(params[:id])
     end
 
     def create
@@ -12,8 +13,8 @@ class PaintingsController < ApplicationController
     end
 
     def colors
-        byebug
         painting = Painting.find(params[:id])
+        render json: painting.colors
 
     end
 
