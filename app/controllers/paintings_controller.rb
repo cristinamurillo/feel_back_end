@@ -18,7 +18,6 @@ class PaintingsController < ApplicationController
 
     def colors 
         painting = Painting.find(params[:id])
-        byebug
         render json: painting.colors
     end
 
