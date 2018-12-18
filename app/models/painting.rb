@@ -4,6 +4,6 @@ class Painting < ApplicationRecord
 
     def colors
         colorsObj = Miro::DominantColors.new(self.img_url)
-        return colorsObj.to_rgba
+        return colorsObj.to_rgb
     end
 end
