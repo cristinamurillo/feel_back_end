@@ -11,9 +11,12 @@ class PaintingsController < ApplicationController
     end
 
     def create
-        painting = Painting.create(paintings_params)
-        if painting.valid? 
+        painting = Painting.new(paintings_params)
+        if painting.valid? && painting.colors.kind_of?(Array)
+            painting.save
             render json: painting 
+        else 
+            render json: {message: "Image invalid for color analysis"}, status: :not_acceptable
         end
     end
 

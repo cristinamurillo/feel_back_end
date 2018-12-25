@@ -1,3 +1,4 @@
+
 class Painting < ApplicationRecord
 
     has_many :user_paintings
@@ -7,6 +8,6 @@ class Painting < ApplicationRecord
 
     def colors
         colorsObj = Miro::DominantColors.new(self.img_url)
-        return colorsObj.to_rgb
+        colorsObj.to_rgb
     end
 end
