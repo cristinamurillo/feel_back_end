@@ -1,0 +1,2 @@
+module UserPaintingsHelper
+end

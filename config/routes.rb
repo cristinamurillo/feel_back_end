@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get '/paintings/:id/colors', to: 'paintings#colors'
   resources :paintings, only: [:index, :show, :create]
+  resources :user_paintings, only: [:index, :create]
 
   Rails.application.routes.draw do
     namespace :api do
