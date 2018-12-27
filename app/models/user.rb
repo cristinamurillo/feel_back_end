@@ -11,4 +11,6 @@ class User < ApplicationRecord
     validates :last_name, length:{maximum: 20}, format: { with: /\A[a-zA-Z]+\z/,
     message: "only allows letters" }
 
+    
+
 end
