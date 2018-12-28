@@ -6,8 +6,11 @@ class Painting < ApplicationRecord
 
     validates :img_url, presence: true, uniqueness: true 
 
-    def colors
+    def addColors
         colorsObj = Miro::DominantColors.new(self.img_url)
-        colorsObj.to_rgb
+        colorsArray = colorsObj.to_hex 
+        colorsArray.each_with_index { |color, index| 
+            self.update_attribute("color#{index+1}", color)
+        }
     end
 end
