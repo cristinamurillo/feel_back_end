@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_21_224735) do
+ActiveRecord::Schema.define(version: 2018_12_28_174734) do
 
   create_table "paintings", force: :cascade do |t|
     t.string "img_url"
@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(version: 2018_12_21_224735) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "color1"
+    t.string "color2"
+    t.string "color3"
+    t.string "color4"
+    t.string "color5"
+    t.string "color6"
+    t.string "color7"
+    t.string "color8"
   end
 
   create_table "user_paintings", force: :cascade do |t|

@@ -7,12 +7,16 @@ class PaintingsController < ApplicationController
     end
 
     def show
-        render json: Painting.find(params[:id])
+        painting = Painting.find(params[:id])
+        if !painting.color1
+            painting.addColors
+        end
+        render json: painting
     end
 
     def create
         painting = Painting.new(paintings_params)
-        if painting.valid? && painting.colors.kind_of?(Array)
+        if painting.valid? && painting.addColors.kind_of?(Array)
             painting.save
             render json: painting 
         else 
@@ -20,10 +24,10 @@ class PaintingsController < ApplicationController
         end
     end
 
-    def colors 
-        painting = Painting.find(params[:id])
-        render json: painting.colors
-    end
+    # def colors 
+    #     painting = Painting.find(params[:id])
+    #     render json: painting.colors
+    # end
 
     private 
 
