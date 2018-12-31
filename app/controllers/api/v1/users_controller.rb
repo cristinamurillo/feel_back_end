@@ -1,13 +1,20 @@
 class Api::V1::UsersController < ApplicationController
     protect_from_forgery prepend: true
-    skip_before_action :authorized, only: [:create]
+    skip_before_action :authorized, only: [:index, :create]
 
     def index
         render json: User.all 
     end
 
     def profile 
+        user = current_user
         render json: {user: UserSerializer.new(current_user)}, status: :accepted 
+   
+    end
+
+    def timeline 
+        user = current_user
+        render json: user.user_paintings, :include => :painting
     end
     
     def create 
