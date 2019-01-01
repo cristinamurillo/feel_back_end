@@ -1,12 +1,14 @@
 class UserPaintingsController < ApplicationController
     skip_before_action :authorized, only: [:index, :create]
     skip_before_action :verify_authenticity_token
+
     def index
-        render json: UserPainting.all
+        render json: UserPainting.all, :include => :painting
     end
 
     def create
         join = UserPainting.create(user_paintings_params)
+        
         if join.valid?
             render json: {message: "Artwork added to collection"}
         else 
