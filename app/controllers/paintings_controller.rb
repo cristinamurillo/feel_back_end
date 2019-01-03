@@ -24,6 +24,12 @@ class PaintingsController < ApplicationController
         end
     end
 
+    def update
+        painting = Painting.find(params[:id])
+        painting.update(paintings_params)
+        render json: painting
+    end
+
     # def colors 
     #     painting = Painting.find(params[:id])
     #     render json: painting.colors

@@ -27,6 +27,7 @@ class Api::V1::UsersController < ApplicationController
             render json: {errors: @user.errors}, status: :not_acceptable
         end 
     end
+    
 
     private
 
